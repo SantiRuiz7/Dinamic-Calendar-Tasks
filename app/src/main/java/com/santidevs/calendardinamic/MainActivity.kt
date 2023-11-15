@@ -83,7 +83,7 @@ class MainActivity : ComponentActivity() {
                     clickedCalendarElem?.toDos?.forEach { toDo ->
                         if (toDo.showButton) {
                             Card(
-                                modifier = Modifier.padding(vertical = 4.dp)
+                                modifier = Modifier.padding(vertical = 3.dp)
                             ) {
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
@@ -101,12 +101,12 @@ class MainActivity : ComponentActivity() {
                                         onClick = { /* Acción cuando se hace clic en el botón */ },
                                         modifier = Modifier.padding(16.dp)
                                     ) {
-                                        Text(text = "Button")
+                                        Text(text = "Hecha")
                                     }
                                 }
                             }
                         } else {
-                            // Aquí puedes mostrar solo el texto
+
                             Text(
                                 modifier = Modifier
                                     .padding(40.dp),
@@ -146,7 +146,7 @@ fun Calendar(
     modifier: Modifier = Modifier,
     calendarInput: List<CalendarInput>,
     onDayClick:(Int)->Unit,
-    strokeWidth:Float = 15f,
+    strokeWidth:Float = 10f,
     month:String
 ) {
 
@@ -228,7 +228,7 @@ fun Calendar(
 
             drawRoundRect(
                 orange,
-                cornerRadius = CornerRadius(25f,25f),
+                cornerRadius = CornerRadius(5f,5f),
                 style = Stroke(
                     width = strokeWidth
                 )
@@ -250,7 +250,7 @@ fun Calendar(
                     strokeWidth = strokeWidth
                 )
             }
-            val textHeight = 17.dp.toPx()
+            val textHeight = 12.dp.toPx()
             for(i in calendarInput.indices){
                 val textPositionX = xSteps * (i% CALENDAR_COLUMNS) + strokeWidth
                 val textPositionY = (i / CALENDAR_COLUMNS) * ySteps + textHeight + strokeWidth/2
